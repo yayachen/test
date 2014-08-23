@@ -1,0 +1,43 @@
+<html>
+<head>
+<meta charset="utf-8">
+<script type="text/javascript">
+	//alert('aaa');
+	//console.log('bbb');
+	/*var sResult = prompt("請在下面輸入你的名子",)
+	if (sResult != null) {
+		alert("你好" + sResult);
+	} else {
+		alert("你好 my friend.");
+	}*/
+	var s = prompt("請在下面輸入你的成績", "60");
+	alert(parseInt(s, 10));
+	if (isNaN(parseInt(s, 10))) {
+		alert("請輸入數字");
+	} else if (parseInt(s, 10) > 100) {
+		alert("請不要亂輸入");
+	} else if (parseInt(s, 10) >= 90) {
+		alert("成績為甲等");
+	} else if (parseInt(s, 10) >= 80) {
+		alert("成績為乙等");
+	} else if (parseInt(s, 10) >= 70) {
+		alert("成績為丙等");
+	} else if (parseInt(s, 10) >= 60) {
+		alert("成績為丁等");
+	} else {
+		alert("不及格");
+	}
+
+	var sum = prompt("請輸入數字計算總合", "60");
+	for (var x = 0; x <= parsetInt(sum, 10); x++) {
+		if (x % 5 == 1){
+			
+		total = total + x;
+		alert(total);
+	}
+	alert("總和是" + total);}
+</script>
+</head>
+<body>
+</body>
+</html>
