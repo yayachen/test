@@ -1,0 +1,113 @@
+﻿
+<!-- /*
+******************************************************************
+Copyright (c) 2011, David Wells. Socialize Your Cause LLC.
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions
+are met:
+
+    * Redistributions of source code must retain the above copyright
+      notice, this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above
+      copyright notice, this list of conditions and the following
+      disclaimer in the documentation and/or other materials provided
+      with the distribution.
+    * Neither the name of the socializeyourcause.org nor the names
+      of its contributors may be used to endorse or promote products
+      derived from this software without specific prior written
+      permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
+
+******************************************************************
+*/ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<link href="http://convertsocial.com/embeds/like-download/like-download-style.css" rel="stylesheet" type="text/css" />
+
+<title></title>
+
+</head>
+
+<div id="content" style="width:500px">
+<div id="Step1">
+    <div style="clear:both">
+<div style="float:left;">
+<img src="http://socializeyourcause.org/fb/like-to-download-700.png" width='500' height='157.142857143' >
+
+</div>
+<div style="margin-top:-55px; margin-left: 165px; float: left;">
+<div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#appId=209205675779605&amp;xfbml=1"></script><fb:like href="" send="false" width="260" height="30" show_faces="false" font=""></fb:like>
+
+</div>
+</div>
+</div>
+<div id="Step2" style="display: none">
+
+
+</div>
+<div id="Step3" style="display: none">
+<center><a class="btn large primary" href="http://wordpress.org/plugins/cta/" style="text-decoration:none;margin-top:51.8571428572px" target="_blank">Click to Download</a></center>
+</div>
+<div id="fb-root"> </div>
+
+<script type="text/javascript">
+
+window.fbAsyncInit = function() {
+    // init the FB JS SDK
+    FB.init({
+      appId      : '743477432361811', // App ID from the App Dashboard
+      status     : true, // check the login status upon init?
+      cookie     : true, // set sessions cookies to allow your server to access the session?
+      xfbml      : true  // parse XFBML tags on this page?
+    });
+
+    FB.Event.subscribe('edge.create', function(href, widget) {
+      document.getElementById('Step1').style.display = 'none';
+      document.getElementById('Step2').style.display = 'block';
+      document.getElementById('Step3').style.display = 'none';
+      setTimeout('document.getElementById(\'Step1\').style.display = \'none\';document.getElementById(\'Step2\').style.display = \'none\';document.getElementById(\'Step3\').style.display = \'block\';', 500);
+   });
+
+  };
+
+ (function(d, debug){
+     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement('script'); js.id = id; js.async = true;
+     js.src = "http://connect.facebook.net/en_US/all" + (debug ? "/debug" : "") + ".js";
+     ref.parentNode.insertBefore(js, ref);
+   }(document, /*debug*/ false));
+</script>
+<script type="text/javascript">
+
+ /* var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-28023232-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();*/
+
+</script>
+</div>
+</body>
+</html>

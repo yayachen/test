@@ -1,0 +1,61 @@
+﻿<html>
+<head>
+
+</head>
+<body>
+  <div id="result"></div>
+<div id="fb-root" class=" fb_reset">
+<div style="position: absolute; top: -10000px; height: 0px; width: 0px;">
+<div></div>
+</div>
+<div style="position: absolute; top: -10000px; height: 0px; width: 0px;">
+<div>
+
+
+</div>
+</div>
+</div>
+<script type="text/javascript">
+ window.fbAsyncInit = function() {
+     //建立Like Button 點擊呈現 link 的eventhandle
+     FB.Event.subscribe('edge.create', function(response) {
+         //將傳回來的資訊顯示在 div id="result"內
+                document.getElementById('result').innerHTML = response;
+                //alert("like");
+                window.location="http://tw.yahoo.com";
+                /*FB.api(
+                		  {
+                		    method: 'fql.query',
+                		    query: 'SELECT name FROM user WHERE uid=1834203455'
+                		  },
+                		  function(response) {
+                		    alert('Name is ' + response[0].name);
+                		  }
+                		);*/      
+     });
+     //建立Like Button 點擊呈現 unlike 的eventhandle
+     FB.Event.subscribe('edge.remove', function(response) {
+                document.getElementById('result').innerHTML = response;
+  alert("unlike");
+     });
+     FB.Event.subscribe('auth.sessionChange', function(response) { if (response.session) { alert(response.authResponse.accessToken); //使用者登入，資料寫入cookies裡
+     	} else { alert("Ohoh"); //使用者登出，cookies被清掉
+     	}
+     }); 
+ };
+     
+</script>
+<div id="login" style="display:;">
+<fb:login-button show-faces="false" width="200" max-rows="1" perms="publish_stream" login_text="" class=" fb_iframe_widget" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=&locale=zh_TW&max_rows=1&perms=publish_stream&sdk=joey&show_faces=false&width=200"><span style="vertical-align: top; width: 0px; height: 0px;"><iframe name="f23406ce44" width="200px" height="1000px" frameborder="0" allowtransparency="true" scrolling="no" title="fb:login_button Facebook Social Plugin" src="http://www.facebook.com/plugins/login_button.php?app_id=&channel=http%3A%2F%2Fstatic.ak.facebook.com%2Fconnect%2Fxd_arbiter%2FbLBBWlYJp_w.js%3Fversion%3D41%23cb%3Df31a99426c%26domain%3Dgreenchiou.blogspot.tw%26origin%3Dhttp%253A%252F%252Fgreenchiou.blogspot.tw%252Ff13d129ab8%26relation%3Dparent.parent&locale=zh_TW&max_rows=1&perms=publish_stream&sdk=joey&show_faces=false&width=200" style="border: none; visibility: visible;"></iframe></span></fb:login-button>
+</div>
+<fb:like href="https://www.facebook.com/howcombus" layout="button" action="like" show_faces="false" share="false" ></fb:like>
+
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&appId=743477432361811&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+</body>
+</html>

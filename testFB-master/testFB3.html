@@ -1,0 +1,112 @@
+<html>
+<head>
+<script>
+    var appid='743477432361811';
+    var pageid='140282406003843';
+ 
+    //登入並取得用戶粉絲團權限
+    function fb_login(){
+        FB.login(function(response) {
+        	alert(objToString(response));
+            if (response.authResponse) {
+                FB.api('/me', function(response) {
+                    //登入成功
+                    fb_userlike();
+                });
+            } else {
+                //登入失敗
+                alert('要先登入FB才可以參加此活動喔');
+            }
+        }, {scope: 'user_likes'});
+    }
+ 
+    //檢查用戶是否按讚
+    function fb_userlike(){
+        FB.api({
+            method: 'fql.query',
+            query: 'select uid from page_fan where page_id = ' + pageid + ' AND uid = me()'
+        },function(data){
+            isfan=data.length;
+            if(isfan){
+                //有按讚
+                fb_post();
+            }else{
+                alert('您還沒按讚喔!');
+            }
+        });
+    }
+ 
+    //發布塗鴉牆
+    function fb_post(){
+        FB.ui({
+            method: 'feed',
+            name: '預測2014年度運勢抽音響耳機',
+            link: 'http://www.tonylin.idv.tw/dokuwiki/doku.php/facebook:basic:graphapi',
+            picture: 'http://www.tonylin.idv.tw/dokuwiki/lib/exe/fetch.php/facebook:basic:socialgraph.png?w=750',
+            caption: 'aaa',
+            description: 'bbb'
+        },function(response) {
+            if (response && response.post_id) {
+                //發文成功
+                location.href="frame_fortune_04.html";
+            } else {
+                //發文失敗
+                alert('發布文章才可參加抽獎喔');
+            }
+        }); 
+    }
+ 
+    //主要活動邏輯
+    function main(){
+        //判斷登入
+        FB.getLoginStatus(function(response) {
+            if(response.status === 'connected'){ //有登入
+ 
+                //判斷app有取得按讚內容權限
+                FB.api({
+                    method: 'users.hasAppPermission',
+                    ext_perm:    'user_likes'
+                },function(resp) {
+                    if (resp == "1")
+                        fb_userlike();
+                    else
+                        fb_login();
+                });
+            }else{ //沒登入
+                fb_login();
+            }
+        });
+    }
+    function objToString (obj) {
+	    var str = '';
+	    for (var p in obj) {
+	        if (obj.hasOwnProperty(p)) {
+	            str += p + '::' + obj[p] + '\n';
+	        }
+	    }
+	    return str;
+	}
+</script>
+</head>
+<body>
+<div id="fb-root">
+<button type="button" onclick="main();">Click Me!</button>
+</div>
+    <script>
+    window.fbAsyncInit = function() {
+        FB.init({
+          appId      : appid,
+          status     : true,
+          xfbml      : true
+        });
+      };
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/all.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
+</body>
+</html>
